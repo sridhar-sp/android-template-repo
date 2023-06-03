@@ -15,7 +15,7 @@ android {
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AppConfig.androidTestInstrumentation
         vectorDrawables {
             useSupportLibrary = true
         }
