@@ -1,0 +1,31 @@
+[versions]
+androidxCore = "1.10.0"
+androidxLifecycle = "2.3.1"
+androidxActivityCompose = "1.3.1"
+androidxComposeBom = "2023.01.00"
+androidxComposeMaterial3 = "1.1.0-alpha06"
+androidxAppcompat = "1.6.0"
+junit4 = "4.13.2"
+androidxComposeUiTooling = "1.4.0"
+daggerHilt = "2.44.2"
+androidxHiltNavigationCompose = "1.0.0"
+timber = "5.0.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-lifecycle-runtimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidxComposeUiTooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+
+[plugins]
+
