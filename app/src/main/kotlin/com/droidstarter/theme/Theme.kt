@@ -1,4 +1,4 @@
-package com.template.theme
+package com.droidstarter.theme
 
 import android.app.Activity
 import android.os.Build
