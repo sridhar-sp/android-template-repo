@@ -12,7 +12,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("com.android.application")
+                apply("com.droidstarter.convention.application")
             }
 
             val extension = extensions.getByType<ApplicationExtension>()
