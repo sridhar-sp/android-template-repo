@@ -41,7 +41,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.appcompat)
-    implementation(libs.timber)
+//    implementation(libs.timber)
     implementation(libs.androidx.hilt.navigation.compose)
 
 
