@@ -38,12 +38,21 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
         ColumnWithBorder {
             DefaultButton(text = "Show thread count", onClick = viewModel::readThreadCount)
             DefaultText(text = "Count ${viewModel.threadCount}")
+
+            DefaultButton(text = "Run GC", onClick = { Runtime.getRuntime().gc() })
         }
 
         ColumnWithBorder {
             DefaultButton(text = viewModel.runNThreadState, onClick = viewModel::runNThread)
+            DefaultText(text = "Time consumed ${viewModel.runNThreadTimeConsumedState}")
+
             DefaultButton(text = viewModel.runNCoroutineState, onClick = viewModel::runNCoroutine)
+            DefaultText(text = "Current progress ${viewModel.runNCoroutineProgress}")
+            DefaultText(text = "Time consumed ${viewModel.runNCoroutineTimeConsumedState}")
+
             DefaultButton(text = "Counter ${viewModel.counter}", onClick = viewModel::incrementCounter)
+
+
         }
 
     }

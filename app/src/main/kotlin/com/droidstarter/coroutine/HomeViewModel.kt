@@ -7,10 +7,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.droidstarter.Instrumentation
+import com.droidstarter.InstrumentationImpl
+import com.droidstarter.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicInteger
 
 class HomeViewModel : ViewModel() {
 
@@ -18,21 +22,37 @@ class HomeViewModel : ViewModel() {
 
     companion object {
         const val TAG = "HomeViewModel"
-        const val TASK_COUNT = 50000
-        const val TASK_DELAY = 100L
+        private const val TASK_COUNT = 50000
+        private const val TASK_DELAY = 100L
     }
 
-    val message = "Sridhar"
+    var counter by mutableIntStateOf(0)
+        private set
 
-    var counter by mutableStateOf(0)
+    var runNThreadState by mutableStateOf("Run $TASK_COUNT Thread")
+        private set
+    var runNThreadTimeConsumedState by mutableStateOf("NA")
+        private set
 
-    var runNThreadState by mutableStateOf("Run N Thread")
+    var runNCoroutineState by mutableStateOf("Run $TASK_COUNT Coroutine")
+        private set
+    var runNCoroutineTimeConsumedState by mutableStateOf("NA")
+        private set
 
-    var runNCoroutineState by mutableStateOf("Run N Coroutine")
+    private var runNCoroutineCount = AtomicInteger(0)
+    var runNCoroutineProgress by mutableStateOf("NA")
+        private set
 
-    val executors = Executors.newCachedThreadPool()
+    private val executors = Executors.newCachedThreadPool()
 
     var threadCount by mutableIntStateOf(-1)
+        private set
+
+    private val instrumentation = InstrumentationImpl.newInstance(logger = object : Instrumentation.Logger {
+        override fun log(content: String) {
+            Log.d(TAG, content)
+        }
+    })
 
     init {
         readThreadCount()
@@ -40,11 +60,15 @@ class HomeViewModel : ViewModel() {
 
     fun readThreadCount() {
         threadCount = Thread.activeCount()
+        runNCoroutineProgress = ((runNCoroutineCount.get())).toString()
     }
 
     fun runNThread() {
+        val tag = "runNThread"
         Log.d(TAG, "${Thread.currentThread().name} Start")
         runNThreadState = "Running"
+        instrumentation.start(tag)
+
         executors.submit {
             for (i in 0..TASK_COUNT) {
                 executors.submit {
@@ -52,38 +76,42 @@ class HomeViewModel : ViewModel() {
                     Log.d(TAG, "${Thread.currentThread().name} $i |")
                 }
             }
-            runNThreadState = "Run N Thread"
+            runNThreadState = "Run $TASK_COUNT Thread"
 
+            val stop = instrumentation.stop(tag)
+            runNThreadTimeConsumedState = "$stop ms"
         }
+
         Log.d(TAG, "${Thread.currentThread().name} End")
     }
 
     fun runNCoroutine() {
-        Log.d(TAG, "${Thread.currentThread().name} Start")
+        val tag = "runNCoroutine"
+        logD("$tag Start Block")
         runNCoroutineState = "Running"
+        runNCoroutineCount.set(0)
 
+        instrumentation.start(tag)
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 for (i in 0..TASK_COUNT) {
                     launch {
-                        Thread.sleep(TASK_DELAY)
-                        Log.d(TAG, "${Thread.currentThread().name} $i |")
+                        Thread.sleep(TASK_DELAY) // vs delay()
+                        runNCoroutineCount.set(runNCoroutineCount.incrementAndGet())
                     }
                 }
-                runNCoroutineState = "Run N Coroutine"
+                runNCoroutineState = "Run $TASK_COUNT Coroutine"
+
+                val stop = instrumentation.stop(tag)
+                runNCoroutineTimeConsumedState = "$stop ms"
             }
         }
 
-        Log.d(TAG, "${Thread.currentThread().name} End")
+        logD("$tag End Block")
     }
 
-     fun incrementCounter() {
+    fun incrementCounter() {
         counter += 1
     }
 
-    private suspend fun a() {
-        withContext(Dispatchers.IO) {
-
-        }
-    }
 }
