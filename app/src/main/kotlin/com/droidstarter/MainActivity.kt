@@ -133,8 +133,8 @@ fun ThemeIcon(
 ) {
     Card(onClick = { onClick(!isDarkTheme) }) {
         Image(
-            painter = if (isDarkTheme) painterResource(id = R.drawable.ic_dark_mode) else painterResource(
-                id = R.drawable.ic_light_mode
+            painter = if (isDarkTheme) painterResource(id = R.drawable.ic_light_mode) else painterResource(
+                id = R.drawable.ic_dark_mode
             ),
             contentDescription = "ThemeToggle",
             modifier = Modifier
