@@ -22,7 +22,7 @@ Below are the screenshots of the application in dark and light themes.
 * Assume your project is using kotlin DSL, otherwise please take care of the syntax
   changes https://www.codeconvert.ai/kotlin-to-groovy-converter *
 
-Step 1
+### Step 1: Create `build-logic` Folder
 * Create a `build-loigc` folder and create `settings.gradle.kts` and paste the below content there
 
 ```
@@ -65,7 +65,7 @@ pluginManagement {
 // ...
 ```
 
-Step 2
+### Step 2 Create the `convention` Module
 Create a `convention` module and modify the `build.gradle.kts` file inside the `convention` as below
 
 ```
@@ -109,8 +109,9 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ```
 
-Step 3
-Create your first convention plugin, lets create a android application plugin, basically most the build logic we
+### Step 3 Create Your First Convention Plugin
+
+Lets create a android application plugin, basically most the build logic we
 have inside the android 'app' module `build.gradle` will be added here, so we can use this plugin instead of
 `com.android.application` and also if our project has other android application module (i.e module build .apk as
 output) we can apply our plugin to avoid duplicating the build logic.
@@ -143,7 +144,7 @@ Now with the help of kotlin DSL we configure the app module build config like, m
 dependencies etc. Take a look at `configureKotlinAndroid` method
 inside [KotlinAndroid.kt](build-logic%2Fconvention%2Fsrc%2Fmain%2Fkotlin%2Fcom%2Fdroidstarter%2Fsupport%2FKotlinAndroid.kt)
 
-Step 4
+### Step 4 Register Your Convention Plugin
 Lets register our convention plugin now, so that we can use it inside the app module `build.gradle.kts`
 
 Inside convention module `build.gradle.kts` inside `gradlePlugin` section lets add our plugin info like below
@@ -162,7 +163,7 @@ gradlePlugin {
 Lets map the `AndroidApplicationConventionPlugin.kt` class to a unique id `com.droidstarter.convention.application`
 and give a unique name to this new plugin as `androidApplication`
 
-Step 5
+### Step 5 Apply the Plugin to Your App Module
 Lets go to our application module `build.gradle.kts` and replace this new plugin id with the old
 `com.android.application`, like below
 
@@ -177,7 +178,7 @@ plugins {
 Now we can remove the minSdk, targetSdk declaration from this module, since those are already covered by our
 `androidApplication` plugin.
 
-Step 6 (Optional)
+### Step 6 (Optional): Use Version Catalog for Plugins
 Instead of hardcoding the id inside the `build.gradle.kts` we can make use of toml file to resolve this plugin.
 
 Inside `libs.versions.toml` file lets add plugin section like below
