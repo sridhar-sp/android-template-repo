@@ -22,3 +22,5 @@ rootProject.name = "android-template-repo"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS") // Enable usage like implementation(projects.core.datastore) in gradle
 
 include(":app")
+include(":core")
+include(":core:designsystem")

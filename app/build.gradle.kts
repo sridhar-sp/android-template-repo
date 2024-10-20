@@ -39,11 +39,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtimeKtx)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.appcompat)
-    implementation(libs.timber)
     implementation(libs.androidx.hilt.navigation.compose)
-
+    implementation(projects.core.designsystem)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     testImplementation(libs.junit4)
