@@ -93,18 +93,16 @@ internal fun Project.configureJacoco(coverageExclusionList: List<String>, varian
 
     val groupName = "jacoco"
 
-    val jacocoTestReport = tasks.create("jacocoTestReport").apply { group = groupName }
-    val jacocoTestVerification = tasks.create("jacocoTestVerification").apply { group = groupName }
+    val allJacocoTestReport = tasks.create("jacocoTestReport").apply { group = groupName }
+    val allJacocoTestVerification = tasks.create("jacocoTestVerification").apply { group = groupName }
 
     variantList.forEach { variant ->
         val testTaskName = "test${variant.capitalize()}UnitTest"
-        val buildDir = layout.buildDirectory.get().asFile
-        val reportTask = tasks.register("jacoco${testTaskName.capitalize()}Report", JacocoReport::class) {
+        val jacocoReportTask = tasks.register("jacoco${testTaskName.capitalize()}Report", JacocoReport::class) {
             group = groupName
             dependsOn(testTaskName)
 
             reports {
-                xml.required.set(true)
                 html.required.set(true)
             }
 
@@ -120,7 +118,7 @@ internal fun Project.configureJacoco(coverageExclusionList: List<String>, varian
             "jacoco${testTaskName.capitalize()}Verification", JacocoCoverageVerification::class.java
         ) {
             group = groupName
-            dependsOn(testTaskName)
+            dependsOn(jacocoReportTask)
 
             violationRules {
                 rule {
@@ -138,8 +136,8 @@ internal fun Project.configureJacoco(coverageExclusionList: List<String>, varian
             )
         }
 
-        jacocoTestReport.dependsOn(reportTask)
-        jacocoTestVerification.dependsOn(verificationTask)
+        allJacocoTestReport.dependsOn(jacocoReportTask)
+        allJacocoTestVerification.dependsOn(verificationTask)
     }
 
     tasks.withType<Test>().configureEach {
