@@ -1,5 +1,6 @@
 # Android Template Repo
-Template repository for android
+This is a template repo for android project, it has convention plugin to allow sharing the build config with other
+modules, it also uses modern build style like using toml file for version management and etc.
 
 # Screenshots
 
@@ -11,11 +12,6 @@ Below are the screenshots of the application in dark and light themes.
 | **Light** | ![Light Theme](docs/home_screen_light.png) | ![Light Theme 2](docs/home_screen_light_2.png) | ![Light Theme 3](docs/home_screen_light_3.png) |
 
 # Readme is still in draft version.
-
-# What's inside this
-
-This is a template repo for android project, it has convention plugin to allow sharing the build config with other
-modules, it also uses modern build style like using toml file for version management and etc.
 
 # What's a convention plugin
 
