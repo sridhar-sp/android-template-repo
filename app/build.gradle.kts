@@ -1,7 +1,6 @@
 import com.droidstarter.support.AppConfig
 
 plugins {
-    alias(libs.plugins.droidstarter.android.application)
     alias(libs.plugins.droidstarter.android.application.compose)
     alias(libs.plugins.droidstarter.android.hilt)
 }

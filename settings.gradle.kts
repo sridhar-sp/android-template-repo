@@ -19,7 +19,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "android-template-repo"
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS") // Enable usage like implementation(projects.core.datastore) in gradle
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS") // Enable usage like implementation(projects.core.designsystem) in gradle
 
 include(":app")
 include(":core")
