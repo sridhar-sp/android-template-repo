@@ -21,7 +21,8 @@ Below are the screenshots of the application in dark and light themes.
 
 * Assume your project is using kotlin DSL, otherwise please take care of the syntax
   changes https://www.codeconvert.ai/kotlin-to-groovy-converter *
-  Step 1
+
+Step 1
 * Create a `build-loigc` folder and create `settings.gradle.kts` and paste the below content there
 
 ```
