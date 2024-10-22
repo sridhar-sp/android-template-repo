@@ -205,3 +205,33 @@ plugins {
 # Create new module (Example design system)
 
 Docs coming soon
+
+# Important
+Make sure you have below dependency in toml file
+```
+[versions]
+androidGradlePlugin = "8.0.2"
+kotlin = "1.9.22"
+daggerHilt = "2.48.1"
+
+[libraries]
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+```
+
+And 
+root `build.gradle.kts`
+```
+plugins {
+    alias(libs.plugins.com.android.application) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
+    alias(libs.plugins.com.android.library) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.dagger.hilt) apply false
+}
+```
