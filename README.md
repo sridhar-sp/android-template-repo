@@ -19,11 +19,12 @@ Below are the screenshots of the application in dark and light themes.
 
 # How to add this convention plugin
 
-* Assume your project is using kotlin DSL, otherwise please take care of the syntax
-  changes https://www.codeconvert.ai/kotlin-to-groovy-converter *
+* Assume your project is using kotlin DSL, otherwise use below site convert the to groovy
+  https://www.codeconvert.ai/kotlin-to-groovy-converter
 
 ### Step 1: Create `build-logic` Folder
-* Create a `build-loigc` folder and create `settings.gradle.kts` and paste the below content there
+
+* Create a `build-loigc` folder in root and create `settings.gradle.kts` and paste the below content there
 
 ```
 @file:Suppress("UnstableApiUsage")
@@ -235,3 +236,11 @@ plugins {
     alias(libs.plugins.dagger.hilt) apply false
 }
 ```
+
+What is a script plugin
+https://docs.gradle.org/current/userguide/custom_plugins.html#sec:build_script_plugins
+
+https://docs.gradle.org/current/samples/sample_convention_plugins.html#compiling_convention_plugins
+
+TestKit
+https://docs.gradle.org/current/userguide/test_kit.html

@@ -1,5 +1,5 @@
 plugins {
-    `kotlin-dsl`
+    `kotlin-dsl` // use gradlePlugin to register the plugin we created, which helps gradle to discover our plugins
 }
 
 group = "com.droidstarter.buildlogic"

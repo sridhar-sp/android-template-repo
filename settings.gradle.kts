@@ -5,7 +5,7 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal()
+        gradlePluginPortal() // External plugins can be resolved in dependencies section
     }
 }
 
