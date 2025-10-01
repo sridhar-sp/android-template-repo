@@ -13,6 +13,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("com.droidstarter.convention.application")
+                apply("org.jetbrains.kotlin.plugin.compose")
             }
 
             val extension = extensions.getByType<ApplicationExtension>()
