@@ -20,10 +20,6 @@ androidDesugarJdkLibs = "2.1.5"
 junit = "1.2.1"
 espresso-core = "3.6.1"
 material = "1.12.0"
-jfrog = "5.1.10"
-jacoco = "0.8.8"
-coreMedia = "0.2.14"
-androidxMedia = "1.7.0"
 constraintlayoutCompose = "1.0.1"
 
 [libraries]
@@ -46,13 +42,9 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-jfrog-build-info-extractor-gradle = { group = "org.jfrog.buildinfo", name = "build-info-extractor-gradle", version.ref = "jfrog" }
-core-media = { group = "com.visteon.coremedia", name = "coremediaclient-jlr", version.ref = "coreMedia" }
-androidx-media = { group = "androidx.media", name = "media", version.ref = "androidxMedia" }
-
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
