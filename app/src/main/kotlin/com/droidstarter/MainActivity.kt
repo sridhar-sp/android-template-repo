@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
             var isDarkTheme by remember {
                 mutableStateOf(true)
             }
-            MaterialTheme.colorScheme.primary
+
             DroidActivityTheme(activity = this, isDarkTheme = isDarkTheme) {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     Column {
