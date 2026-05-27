@@ -15,11 +15,6 @@ junit4 = "4.13.2"
 androidxComposeUiTooling = "1.8.1"
 daggerHilt = "2.57.2"
 androidxHiltNavigationCompose = "1.2.0"
-timber = "5.0.1"
-androidDesugarJdkLibs = "2.1.5"
-junit = "1.2.1"
-espresso-core = "3.6.1"
-material = "1.12.0"
 constraintlayoutCompose = "1.0.1"
 
 [libraries]
@@ -38,17 +33,9 @@ androidx-compose-material3-windowSizeClass = { group = "androidx.compose.materia
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
