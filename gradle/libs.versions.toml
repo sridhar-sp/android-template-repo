@@ -1,6 +1,5 @@
 [versions]
-agp = "8.10.0"
-androidGradlePlugin = "8.0.2"
+agp = "8.13.2"
 org-jetbrains-kotlin-android = "2.2.20"
 kotlin = "2.2.20"
 androidxComposeCompiler = "1.5.15" # used by AndroidCompose.kt file to configure compose compiler
@@ -34,7 +33,7 @@ dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref 
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
-android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [plugins]
